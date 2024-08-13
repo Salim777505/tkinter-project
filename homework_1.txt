@@ -1,0 +1,795 @@
+
+
+abs() - Returns the absolute value of a number.
+
+
+number = -7
+result = abs(number)
+print(result)  # Output: 7
+
+
+all() - Returns True if all elements in an iterable are true.
+
+
+values = [True, True, True]
+result = all(values)
+print(result)  # Output: True
+
+values = [True, False, True]
+result = all(values)
+print(result)  # Output: False
+
+
+any() - Returns True if any element of an iterable is true.
+
+
+values = [False, False, True]
+result = any(values)
+print(result)  # Output: True
+
+values = [False, False, False]
+result = any(values)
+print(result)  # Output: False
+
+
+ascii() - Returns a string containing a printable representation of an object, but with non-ASCII characters escaped.
+
+
+text = 'Hello,'
+result = ascii(text)
+print(result)  # Output: 'Hello, \u4e16\u754c'
+bin() - Converts an integer to a binary string.
+
+
+number = 10
+result = bin(number)
+print(result)  # Output: '0b1010'
+
+
+bool() - Converts a value to a boolean.
+
+
+value = 0
+result = bool(value)
+print(result)  # Output: False
+
+value = 1
+result = bool(value)
+print(result)  # Output: True
+
+
+bytearray() - Returns a mutable array of bytes.
+
+
+byte_arr = bytearray([65, 66, 67])
+print(byte_arr)  # Output: bytearray(b'ABC')
+
+byte_arr[0] = 90
+print(byte_arr)  # Output: bytearray(b'ZBC')
+
+
+bytes() - Returns an immutable bytes object.
+
+
+byte_obj = bytes([65, 66, 67])
+print(byte_obj)  # Output: b'ABC'
+
+# byte_obj[0] = 90  # This would raise a TypeError because bytes objects are immutable
+
+
+
+
+
+
+
+
+callable(): Checks if an object is callable (i.e., if it can be called as a function).
+
+
+def my_function():
+    return "Hello, world!"
+
+print(callable(my_function))  # Output: True
+
+my_list = [1, 2, 3]
+print(callable(my_list))  # Output: False
+
+chr(): Returns a character (a string of length 1) from an integer representing the Unicode code point.
+
+print(chr(65))  # Output: 'A'
+print(chr(97))  # Output: 'a'
+
+classmethod(): A decorator to define a class method. It returns a class method for the given function.
+
+
+class MyClass:
+    @classmethod
+    def my_class_method(cls):
+        return "This is a class method"
+
+print(MyClass.my_class_method())  # Output: 'This is a class method'
+
+compile(): Compiles a source code into a code object that can be executed by exec() or eval().
+
+
+code_str = 'print("Hello from compiled code!")'
+code_obj = compile(code_str, '<string>', 'exec')
+exec(code_obj)  # Output: Hello from compiled code!
+complex(): Creates a complex number from real and imaginary parts.
+
+
+c1 = complex(1, 2)  # Real part: 1, Imaginary part: 2
+c2 = complex(3)     # Real part: 3, Imaginary part: 0
+print(c1)  # Output: (1+2j)
+print(c2)  # Output: (3+0j)
+
+
+delattr(): Deletes an attribute from an object.
+
+
+class MyClass:
+    def __init__(self):
+        self.my_attr = 42
+
+obj = MyClass()
+print(obj.my_attr)  # Output: 42
+
+delattr(obj, 'my_attr')
+# print(obj.my_attr)  # Uncommenting this line will raise AttributeError
+dict(): Creates a dictionary.
+
+
+my_dict = dict(a=1, b=2, c=3)
+print(my_dict)  # Output: {'a': 1, 'b': 2, 'c': 3}
+
+# Alternative way to create a dictionary
+my_dict2 = dict([(1, 'one'), (2, 'two')])
+print(my_dict2)  # Output: {1: 'one', 2: 'two'}
+
+
+dir(): Returns a list of attributes and methods of an object.
+
+
+class MyClass:
+    def __init__(self):
+        self.my_attr = 42
+
+    def my_method(self):
+        pass
+
+obj = MyClass()
+print(dir(obj))  # Output: List of attributes and methods, including '__init__', 'my_attr', 'my_method', etc.
+
+
+
+divmod(): Returns a tuple containing the quotient and the remainder when dividing two numbers.
+
+
+quotient, remainder = divmod(10, 3)
+print(quotient)  # Output: 3
+print(remainder)  # Output: 1
+enumerate(): Returns an enumerate object that adds a counter to an iterable.
+
+
+fruits = ['apple', 'banana', 'cherry']
+for index, fruit in enumerate(fruits):
+    print(index, fruit)
+# Output:
+# 0 apple
+# 1 banana
+# 2 cherry
+
+
+eval(): Executes a string containing a Python expression and returns the result.
+
+
+expression = '3 * 4 + 2'
+result = eval(expression)
+print(result)  # Output: 14
+
+exec(): Executes a string containing Python code. Unlike eval(), it can execute multiple statements.
+
+
+def greet(name):
+return f"Hello, {name}!"
+
+print(greet("Alice"))
+exec(code)
+
+Output: Hello, Alice!
+
+5. **`filter()`**: Constructs an iterator from elements of an iterable for which a function returns `True`.
+
+
+def is_even(n):
+    return n % 2 == 0
+
+numbers = [1, 2, 3, 4, 5, 6]
+even_numbers = filter(is_even, numbers)
+print(list(even_numbers))  # Output: [2, 4, 6]
+float(): Converts a number or a string to a floating-point number.
+
+
+num1 = float(5)      # From integer
+num2 = float('3.14') # From string
+print(num1)  # Output: 5.0
+print(num2)  # Output: 3.14
+
+
+format(): Returns a formatted representation of a value.
+
+
+number = 1234.56789
+formatted_number = format(number, '.2f')  # Format with 2 decimal places
+print(formatted_number)  # Output: '1234.57'
+
+# Using format() with positional and keyword arguments
+formatted_string = "The value is {:.2f}".format(number)
+print(formatted_string)  # Output: 'The value is 1234.57'
+frozenset(): Returns an immutable frozenset object, which is like a set but cannot be modified.
+
+
+my_set = frozenset([1, 2, 3, 4, 5])
+print(my_set)  # Output: frozenset({1, 2, 3, 4, 5})
+
+# Attempting to modify frozenset will raise an AttributeError
+# my_set.add(6)  # Uncommenting this line will raise an AttributeError
+Feel free to ask if you need more details or additional examples!
+
+
+
+
+getattr():
+This function returns the value of a named attribute of an object. If the attribute is not found, it can return a default value if specified.
+
+
+class MyClass:
+    def __init__(self):
+        self.attribute = 'Hello, World!'
+
+obj = MyClass()
+print(getattr(obj, 'attribute'))  # Output: Hello, World!
+print(getattr(obj, 'non_existing_attr', 'Default Value'))  # Output: Default Value
+
+globals():
+This function returns a dictionary representing the current global symbol table.
+
+x = 10
+y = 20
+
+def print_globals():
+    print(globals())
+
+print_globals()
+# Output: {'__name__': '__main__', '__doc__': None, '__package__': None, '__loader__': <_frozen_importlib_external.SourceFileLoader object at ...>, '__spec__': None, '__builtins__': <module 'builtins' (built-in)>, 'x': 10, 'y': 20, 'print_globals': <function print_globals at ...>, ...}
+hasattr():
+This function checks if an object has a named attribute.
+
+
+class MyClass:
+    def __init__(self):
+        self.attribute = 'Hello'
+
+obj = MyClass()
+print(hasattr(obj, 'attribute'))  # Output: True
+print(hasattr(obj, 'non_existing_attr'))  # Output: False
+
+
+hash():
+This function returns the hash value of an object. Hashable objects include numbers, strings, and tuples (containing only hashable types).
+
+
+a = 'hello'
+b = (1, 2, 3)
+print(hash(a))  # Output: A hash value (e.g., 1395966031385867664)
+print(hash(b))  # Output: A hash value (e.g., 2528502973977326415)
+
+
+help():
+This function invokes the built-in help system and provides information about objects. You can pass it a module, class, function, or even an object.
+
+
+help(print)  # This will provide documentation about the print function
+
+
+hex():
+This function converts an integer to a hexadecimal string.
+
+
+num = 255
+print(hex(num))  # Output: '0xff'
+
+
+id():
+This function returns the identity (memory address) of an object.
+
+
+a = 'hello'
+print(id(a))  # Output: Memory address of the object (e.g., 140354387429824)
+
+
+input():
+This function reads a line from input and returns it as a string.
+
+
+user_input = input("Enter something: ")
+print(f'You entered: {user_input}')
+# If you type 'Python' and press Enter, the output will be: You entered: Python
+
+
+
+
+
+
+1. int()
+The int() function converts a number or a string into an integer.
+
+
+# From a number
+num = int(5.67)  # Converts float to integer
+print(num)  # Output: 5
+
+# From a string
+num_str = int("123")  # Converts string to integer
+print(num_str)  # Output: 123
+
+# With base
+num_base = int("1010", 2)  # Converts binary string to integer
+print(num_base)  # Output: 10
+2. isinstance()
+The isinstance() function checks if an object is an instance of a specified class or a tuple of classes.
+
+
+# Checking if an object is an instance of a class
+x = 10
+print(isinstance(x, int))  # Output: True
+
+# Checking if an object is an instance of multiple classes
+y = "Hello"
+print(isinstance(y, (int, str)))  # Output: True
+3. issubclass()
+The issubclass() function checks if a class is a subclass of another class or a tuple of classes.
+
+
+class Animal:
+    pass
+
+class Dog(Animal):
+    pass
+
+# Checking if Dog is a subclass of Animal
+print(issubclass(Dog, Animal))  # Output: True
+
+# Checking against multiple classes
+print(issubclass(Dog, (Animal, str)))  # Output: True
+4. iter()
+The iter() function returns an iterator object from an iterable.
+
+
+# From a list
+my_list = [1, 2, 3]
+list_iter = iter(my_list)
+
+# Using the iterator
+print(next(list_iter))  # Output: 1
+print(next(list_iter))  # Output: 2
+print(next(list_iter))  # Output: 3
+5. len()
+The len() function returns the length (number of items) of an object.
+
+
+# Length of a list
+my_list = [1, 2, 3, 4]
+print(len(my_list))  # Output: 4
+
+# Length of a string
+my_string = "Hello"
+print(len(my_string))  # Output: 5
+6. list()
+The list() function creates a list from an iterable.
+
+
+# From a string
+str_to_list = list("hello")  # Converts string to list of characters
+print(str_to_list)  # Output: ['h', 'e', 'l', 'l', 'o']
+
+# From a tuple
+tuple_to_list = list((1, 2, 3))
+print(tuple_to_list)  # Output: [1, 2, 3]
+7. locals()
+The locals() function returns a dictionary of the current local symbol table.
+
+
+def my_function():
+    a = 10
+    b = 20
+    local_vars = locals()  # Get local variables
+    print(local_vars)  # Output: {'a': 10, 'b': 20}
+
+my_function()
+8. map()
+The map() function applies a function to all items in an iterable and returns an iterator.
+
+
+# Function to apply
+def square(x):
+    return x * x
+
+# Iterable
+numbers = [1, 2, 3, 4]
+
+# Using map
+squared_numbers = map(square, numbers)
+
+# Convert map object to list
+print(list(squared_numbers))  # Output: [1, 4, 9, 16]
+Each of these examples demonstrates how to use the function or method in a practical context. Let me know if you have any more questions!
+
+
+
+
+max():
+
+
+numbers = [3, 5, 7, 2, 8]
+largest = max(numbers)
+print(largest)  # Output: 8
+
+
+memoryview():
+
+
+data = bytearray(b'hello world')
+mv = memoryview(data)
+print(mv[0])  # Output: 104 (ASCII value for 'h')
+min():
+
+
+numbers = [3, 5, 7, 2, 8]
+smallest = min(numbers)
+print(smallest)  # Output: 2
+
+
+next():
+
+e
+iterator = iter([1, 2, 3])
+print(next(iterator))  # Output: 1
+print(next(iterator))  # Output: 2
+object():
+
+
+obj = object()
+print(type(obj))  # Output: <class 'object'>
+
+
+oct():
+
+
+number = 64
+octal = oct(number)
+print(octal)  # Output: '0o100'
+
+
+open():
+
+
+with open('example.txt', 'w') as file:
+    file.write('Hello, world!')
+# Read the file to verify
+with open('example.txt', 'r') as file:
+    content = file.read()
+
+
+    print(content)  # Output: 'Hello, world!'
+ord():
+
+
+character = 'A'
+ascii_value = ord(character)
+print(ascii_value)  # Output: 65
+
+
+pow():
+
+
+base = 2
+exponent = 3
+result = pow(base, exponent)
+print(result)  # Output: 8
+
+
+
+
+1. print()
+Prints the given object to the console.
+
+
+print("Hello, world!")  # Output: Hello, world!
+print(42)              # Output: 42
+print([1, 2, 3])       # Output: [1, 2, 3]
+
+
+
+2. property()
+Returns a property attribute for a class. This is typically used in conjunction with getter, setter, and deleter methods.
+
+
+class Person:
+    def __init__(self, name):
+        self._name = name
+
+    @property
+    def name(self):
+        return self._name
+
+    @name.setter
+    def name(self, value):
+        self._name = value
+
+    @name.deleter
+    def name(self):
+        del self._name
+
+p = Person("Alice")
+print(p.name)    # Output: Alice
+p.name = "Bob"
+print(p.name)    # Output: Bob
+del p.name
+3. range()
+Returns a sequence of integers.
+
+
+for i in range(5):
+    print(i)
+# Output:
+# 0
+# 1
+# 2
+# 3
+# 4
+
+
+4. repr()
+Returns a printable representation of an object, useful for debugging.
+
+
+x = [1, 2, 3]
+print(repr(x))  # Output: [1, 2, 3]
+
+
+5. reversed()
+Returns an iterator that accesses the given sequence in the reverse order.
+
+
+seq = [1, 2, 3]
+for item in reversed(seq):
+    print(item)
+# Output:
+# 3
+# 2
+# 1
+
+
+6. round()
+Rounds a number to a specified number of decimal places.
+
+
+print(round(3.14159, 2))  # Output: 3.14
+print(round(3.14159))     # Output: 3
+
+
+7. set()
+Constructs and returns a set from the given iterable.
+
+
+s = set([1, 2, 2, 3])
+print(s)  # Output: {1, 2, 3}
+
+
+8. setattr()
+Sets the value of an attribute of an object.
+
+
+class MyClass:
+    pass
+
+obj = MyClass()
+setattr(obj, 'attribute', 42)
+print(obj.attribute)  # Output: 42
+
+
+
+1. slice()
+The slice() function creates a slice object that can be used to specify how to slice sequences.
+
+
+# Create a slice object
+s = slice(1, 5, 2)
+
+# Use the slice object to slice a list
+my_list = [10, 20, 30, 40, 50]
+sliced_list = my_list[s]
+print(sliced_list)  # Output: [20, 40]
+2. sorted()
+The sorted() function returns a new sorted list from the elements of any iterable.
+
+# Sort a list of numbers
+numbers = [4, 1, 7, 3, 9]
+sorted_numbers = sorted(numbers)
+print(sorted_numbers)  # Output: [1, 3, 4, 7, 9]
+
+# Sort a list of strings
+words = ['banana', 'apple', 'cherry']
+sorted_words = sorted(words)
+print(sorted_words)  # Output: ['apple', 'banana', 'cherry']
+3. staticmethod()
+The staticmethod() decorator transforms a method into a static method, which doesn’t receive an implicit first argument (i.e., it doesn’t get self or cls).
+
+
+class MathUtils:
+    @staticmethod
+    def add(a, b):
+        return a + b
+
+# Call the static method without creating an instance
+result = MathUtils.add(5, 3)
+print(result)  # Output: 8
+
+
+4. str()
+The str() function returns the string representation of an object.
+
+
+# Convert an integer to a string
+num = 123
+num_str = str(num)
+print(num_str)  # Output: '123'
+
+# Convert a list to a string
+my_list = [1, 2, 3]
+list_str = str(my_list)
+print(list_str)  # Output: '[1, 2, 3]'
+
+
+5. sum()
+The sum() function adds up the items of an iterable.
+
+
+# Sum a list of numbers
+numbers = [1, 2, 3, 4, 5]
+total = sum(numbers)
+print(total)  # Output: 15
+
+# Sum with a starting value
+total_with_start = sum(numbers, 10)
+print(total_with_start)  # Output: 25
+
+
+
+6. super()
+The super() function returns a proxy object that allows you to call methods from a parent class.
+
+
+class Parent:
+    def __init__(self):
+        self.value = 'parent'
+
+    def show(self):
+        print(self.value)
+
+class Child(Parent):
+    def __init__(self):
+        super().__init__()  # Call the parent class constructor
+        self.value = 'child'
+
+# Create an instance of Child
+child = Child()
+child.show()  # Output: 'child'
+
+
+7. tuple()
+The tuple() function returns a tuple object.
+
+
+# Convert a list to a tuple
+my_list = [1, 2, 3]
+my_tuple = tuple(my_list)
+print(my_tuple)  # Output: (1, 2, 3)
+
+# Create a tuple directly
+another_tuple = (4, 5, 6)
+print(another_tuple)  # Output: (4, 5, 6)
+
+
+
+8. type()
+The type() function returns the type of an object.
+
+# Get the type of an integer
+print(type(123))  # Output: <class 'int'>
+
+# Get the type of a string
+print(type("hello"))  # Output: <class 'str'>
+
+# Get the type of a custom class instance
+class MyClass:
+    pass
+
+obj = MyClass()
+print(type(obj))  # Output: <class '__main__.MyClass'>
+
+
+
+
+
+vars()
+The vars() function returns the __dict__ attribute of an object. This is a dictionary representing the object's writable attributes. If called without arguments, it returns the __dict__ of the current local scope.
+
+Example:
+
+class MyClass:
+    def __init__(self, name, age):
+        self.name = name
+        self.age = age
+
+obj = MyClass('Alice', 30)
+
+# Using vars() to get the __dict__ of the object
+attributes = vars(obj)
+print(attributes)
+# Output: {'name': 'Alice', 'age': 30}
+
+# Using vars() to get the __dict__ of the local scope
+local_vars = vars()
+print(local_vars)
+# Output: {'obj': <__main__.MyClass object at 0x...>, 'attributes': {'name': 'Alice', 'age': 30}, ...}
+
+
+zip()
+The zip() function takes multiple iterables and returns an iterator of tuples, where each tuple contains elements from the corresponding positions of the input iterables.
+
+Example:
+
+
+names = ['Alice', 'Bob', 'Charlie']
+ages = [30, 25, 35]
+
+# Using zip() to combine lists
+combined = zip(names, ages)
+
+# Convert to list to display
+combined_list = list(combined)
+print(combined_list)
+# Output: [('Alice', 30), ('Bob', 25), ('Charlie', 35)]
+
+
+__import__()
+The __import__() function is a low-level function that is called by the import statement to import a module. It's rarely used directly by most Python programmers.
+
+Example:
+
+
+# Importing a module using __import__()
+module_name = 'math'
+math_module = __import__(module_name)
+
+# Use the imported module
+print(math_module.sqrt(16))
+# Output: 4.0
+In this example, __import__('math') imports the math module, and then you can use it just like you would with a regular import statement.
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
